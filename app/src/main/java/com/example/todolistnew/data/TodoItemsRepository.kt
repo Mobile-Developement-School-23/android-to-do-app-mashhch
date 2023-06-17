@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.todolistnew.R
 
+
 class TodoItemsRepository {
 
 //    private val allItems: MutableList<Item> = mutableListOf<Item>()
@@ -27,7 +28,7 @@ class TodoItemsRepository {
 
     fun getItems(): MutableList<TodoItem> {
         return mutableListOf(
-            (TodoItem(
+            TodoItem(
                 ItemId = 0,
                 Title = "lalalalalal",
                 ItemPriority = 1,
@@ -36,8 +37,28 @@ class TodoItemsRepository {
                 ItemTimeOfCreation = "14.05.2022",
                 ItemLastChange = "18.04.2023",
                 ItemDeadLine = "09.05.2024"
+            ),
+            TodoItem(
+                ItemId = 1,
+                Title = "waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@",
+                ItemPriority = 1,
+                // Set deadline for a week later
+                isDone= false,
+                ItemTimeOfCreation = "14.05.2022",
+                ItemLastChange = "18.04.2023",
+                ItemDeadLine = "09.05.2024"
+            ),
+            TodoItem(
+                ItemId = 1,
+                Title = "",
+                ItemPriority = 1,
+                // Set deadline for a week later
+                isDone= false,
+                ItemTimeOfCreation = "14.05.2022",
+                ItemLastChange = "18.04.2023",
+                ItemDeadLine = "09.05.2024"
             ))
-        )
+
     }
 }
 

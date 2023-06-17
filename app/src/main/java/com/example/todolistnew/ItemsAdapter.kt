@@ -22,6 +22,7 @@ class ItemsAdapter() : RecyclerView.Adapter<ItemHolder>() {
     override fun getItemCount() = items.size
 
     fun setList(arr: MutableList<TodoItem>) {
+        items.clear()
         items.addAll(arr)
     }
     

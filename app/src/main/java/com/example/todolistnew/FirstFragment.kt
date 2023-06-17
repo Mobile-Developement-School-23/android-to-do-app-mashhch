@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todolist.data.TodoItem
 import com.example.todolist.data.TodoItemsRepository
 import com.example.todolistnew.databinding.FragmentFirstBinding
 
@@ -21,9 +19,9 @@ class FirstFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    lateinit var  itemsRecycleView: RecyclerView
+
     private val itemsPreviewReporository = TodoItemsRepository()
-    private var Item_adapter : ItemsAdapter = ItemsAdapter()
+    private val itemsAdapter : ItemsAdapter = ItemsAdapter()
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -34,14 +32,6 @@ class FirstFragment : Fragment() {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
 
 
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-       //DEAD
-        itemsRecycleView.adapter = Item_adapter
-        itemsRecycleView.layoutManager= layoutManager
-        itemsRecycleView.setHasFixedSize(true)
-
-        Item_adapter.setList(itemsPreviewReporository.getItems())
         return binding.root
     }
 
@@ -52,6 +42,13 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 
+        //DEAD
+        binding.recycleItems.adapter = itemsAdapter
+        //itemsRecycleView.adapter = itemsAdapter
+
+        binding.recycleItems.setHasFixedSize(true)
+
+        itemsAdapter.setList(itemsPreviewReporository.getItems())
     }
 
     override fun onDestroyView() {
